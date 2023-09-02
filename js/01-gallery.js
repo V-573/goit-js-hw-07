@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const galleryContainer = document.querySelector('.gallery');
-const instanciaModalEstado = null;
+let instanciaModalEstado = null;
 
 function GenerarElementoDeGaleria(item) {
     return `
@@ -29,7 +29,7 @@ const abrirVentanaModal = (imageUrl, description) => {
     );
 
     const modalImage = instanciaModal.element().querySelector('img');
-    modalImage.scr = imageUrl;
+    modalImage.src = imageUrl;
     modalImage.alt = description;
 
     instanciaModal.show();
@@ -39,7 +39,7 @@ const abrirVentanaModal = (imageUrl, description) => {
 };
 
 const CerrarVentanaModalConEsc = (event) => {
-    if (event.keyCode===27 && instanciaModalEstado) {
+    if (event.key ==='Escape' && instanciaModalEstado) {
         instanciaModalEstado.close();
         instanciaModalEstado = null;
         document.removeEventListener('keydown', CerrarVentanaModalConEsc);
