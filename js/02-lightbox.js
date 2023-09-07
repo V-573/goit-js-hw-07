@@ -32,7 +32,7 @@ const abrirVentanaModal = (imageUrl, description) => {
     <img src="${imageUrl}" alt ="${description}">`
   );
 
-    var $gallery = new SimpleLightbox('imageUrl', {});
+    //var $gallery = new SimpleLightbox('imageUrl', {});
    
 
   const modalImage = instanciaModal.element().querySelector('img');
