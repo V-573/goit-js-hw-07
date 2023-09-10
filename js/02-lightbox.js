@@ -27,9 +27,11 @@ galleryItems.forEach(item => {
 
 const CerrarVentanaModalConEsc = (event) => {
     if (event.key ==='Escape') {
-     
-        document.removeEventListener('keydown', CerrarVentanaModalConEsc);
-    }
+     if (instanciaModalEstado) {
+            instanciaModalEstado.close();
+            instanciaModalEstado = null;
+        }
+       }
     };
 
 const abrirVentanaModal = (imageUrl, description) => {
