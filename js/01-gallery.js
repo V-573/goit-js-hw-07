@@ -38,9 +38,15 @@ const abrirVentanaModal = (imageUrl, description) => {
     document.addEventListener('keydown', CerrarVentanaModalConEsc);
 };
 
-
+const CerrarVentanaModalConEsc = (event) => {
+    if (event.key ==='Escape' && instanciaModalEstado) {
+        instanciaModalEstado.close();
+        instanciaModalEstado = null;
+        document.removeEventListener('keydown', CerrarVentanaModalConEsc);
+    }
         
 };
+
 galleryContainer.addEventListener('click', event => {
     event.preventDefault();//para que me anule la funcion del click convencional y no me dirija a el enlace de la imagen
    const clickedImage = event.target.closest('.gallery__image');//
