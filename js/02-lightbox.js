@@ -25,30 +25,24 @@ galleryItems.forEach(item => {
     galleryContainer.insertAdjacentHTML('beforeend', elementoGaleriaHtml);
 });
 
+const CerrarVentanaModalConEsc = (event) => {
+    if (event.key ==='Escape') {
+     
+        document.removeEventListener('keydown', CerrarVentanaModalConEsc);
+    }
+    };
+
 const abrirVentanaModal = (imageUrl, description) => {
 
-    
-  const instanciaModal = basicLightbox.create(`
-    <img src="${imageUrl}" alt ="${description}">`
-  );
+    var lightBox =$('imageUrl').simpleLightbox({});
+  
+//   const modalImage = instanciaModal.element().querySelector('img');
+//    modalImage.src = imageUrl;
+//    modalImage.alt = description;
 
-    //var $gallery = new SimpleLightbox('imageUrl', {});
-   
-
-  const modalImage = instanciaModal.element().querySelector('img');
-    modalImage.src = imageUrl;
-    modalImage.alt = description;
-
-    instanciaModal.show();
-    //asigno la instancia de la ventana modal a la variable que voy a usar para usar en el cierre:
-   instanciaModalEstado = instanciaModal;
-    //document.addEventListener('keydown', CerrarVentanaModalConEsc);
+     document.addEventListener('keydown', CerrarVentanaModalConEsc);
 
 };
-
-
-
-
 
 galleryContainer.addEventListener('click', event => {
     event.preventDefault(); // Para que anule la función del clic convencional y no me dirija al enlace de la imagen
@@ -57,7 +51,8 @@ galleryContainer.addEventListener('click', event => {
     if (clickedImage) {
         const largeImageUrl = clickedImage.dataset.source;
         const description = clickedImage.alt;
-        abrirVentanaModal(largeImageUrl, description);
+      abrirVentanaModal(largeImageUrl, description);
+        
     }
 });
 

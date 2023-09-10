@@ -38,12 +38,7 @@ const abrirVentanaModal = (imageUrl, description) => {
     document.addEventListener('keydown', CerrarVentanaModalConEsc);
 };
 
-const CerrarVentanaModalConEsc = (event) => {
-    if (event.key ==='Escape' && instanciaModalEstado) {
-        instanciaModalEstado.close();
-        instanciaModalEstado = null;
-        document.removeEventListener('keydown', CerrarVentanaModalConEsc);
-    }
+
         
 };
 galleryContainer.addEventListener('click', event => {
